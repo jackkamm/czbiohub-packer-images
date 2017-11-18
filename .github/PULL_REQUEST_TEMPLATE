@@ -1,0 +1,7 @@
+Hello! Thank you for making a change to `packer-images`. To make sure all the
+instances don't clash with each other
+
+- [ ] changed "ami_name" to something descriptive and without spaces
+- [ ] changed "ami_description" to something descriptive
+- [ ] `packer build image.json` works
+- [ ] Instance runs
