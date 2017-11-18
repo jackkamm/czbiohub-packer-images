@@ -24,7 +24,7 @@
   }],
   "provisioners": [{
     "type": "shell",
-    "script": "bowtie.sh",
+    "script": "scripts/bowtie.sh",
     "expect_disconnect": true
   }]
 }
