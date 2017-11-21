@@ -13,7 +13,8 @@ cd bowtie2-2.3.3.1/
 make
 
 echo "done building, moving binaries"
-cp bowtie2{,-align-s,-align-l,-build,-build-s,-build-l,-inspect,-inspect-s-inspect-l} $HOME/bin/
+mkdir $HOME/bin
+cp bowtie2{,-align-s,-align-l,-build,-build-s,-build-l,-inspect,-inspect-s,-inspect-l} $HOME/bin/
 cd $HOME
 
 echo "removing source directory"
