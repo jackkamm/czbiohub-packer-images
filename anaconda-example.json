@@ -5,19 +5,18 @@
     "user": "{{env `USER`}}"
   },
   "builders": [{
-    "name": "ubuntu16-ami",
-    "ami_name": "{{user `user`}}-ubuntu-{{isotime | clean_ami_name}}",
-    "ami_description": "An Ubuntu 16.04 AMI with my stuffs",
+    "ami_name": "{{user `user`}}-anaconda-{{isotime \"2006-01-02\" | clean_ami_name}}",
+    "ami_description": "An Ubuntu 16.04 AMI with Anaconda and my special stuff",
     "instance_type": "t2.micro",
     "region": "{{user `aws_region`}}",
     "type": "amazon-ebs",
     "source_ami_filter": {
       "filters": {
-      "virtualization-type": "hvm",
-      "name": "czi-base-ubuntu16-*",
-      "root-device-type": "ebs"
+        "virtualization-type": "hvm",
+        "name": "czbiohub-anaconda-*",
+        "root-device-type": "ebs"
       },
-      "owners": [787588439240],
+      "owners": [423543210473],
       "most_recent": true
     },
     "ssh_username": "ubuntu"
@@ -25,9 +24,11 @@
   "provisioners": [{
     "type": "shell",
     "inline": [
-      "sleep 30",
       "whoami",
-      "pwd"
-    ]
+      "pwd",
+      "echo $PATH"
+    ],
+    "pause_before": "30s",
+    "inline_shebang": "/bin/bash -ex"
   }]
 }
