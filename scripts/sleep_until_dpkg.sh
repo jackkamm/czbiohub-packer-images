@@ -12,9 +12,13 @@ for try in {1..100}; do
 done
 
 # install updates and upgrades
-sudo apt-get -f install
-sudo apt-get update
-sudo apt-get upgrade -y
+yes | sudo apt-get -f install
+yes | sudo apt-get update
+
+# appears to be necessary to prevent an interactive hang problem
+sudo ucf --purge /boot/grub/menu.lst
+export DEBIAN_FRONTEND=noninteractive
+sudo UCF_FORCE_CONFFNEW=YES apt-get upgrade -yq
 
 # install make, g++, awscli
 yes | sudo apt-get install make
