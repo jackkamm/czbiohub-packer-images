@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -x
 
 # download and install
 wget --quiet https://repo.continuum.io/archive/Anaconda3-5.0.1-Linux-x86_64.sh -O /tmp/anaconda.sh
@@ -17,6 +17,8 @@ conda config --add channels r # for backward compatibility with old r packages
 conda config --add channels defaults
 conda config --add channels conda-forge # additional common tools
 conda config --add channels bioconda # useful bioinformatics
+
+conda install -n root _license
 
 # display info
 conda info -a
