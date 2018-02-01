@@ -1,21 +1,22 @@
 {
   "min_packer_version": "1.0.0",
   "variables": {
-    "aws_region": "us-west-2"
+    "aws_region": "us-west-2",
+    "user": "{{env `USER`}}"
   },
   "builders": [{
-    "ami_name": "czbiohub-nanopore-{{isotime \"2006-01-02\" | clean_ami_name}}",
-    "ami_description": "An Ubuntu 16.04 AMI with Albacore and Pomoxis",
+    "ami_name": "czbiohub-specops-{{isotime \"2006-01-02\" | clean_ami_name}}",
+    "ami_description": "Ubuntu 16.04 w/ Anaconda and Special Ops tools",
     "tags": {
-      "Name": "czbiohub-nanopore"
+      "Name": "czbiohub-specops"
     },
-    "instance_type": "m4.xlarge",
+    "instance_type": "m4.4xlarge",
     "region": "{{user `aws_region`}}",
     "type": "amazon-ebs",
     "source_ami_filter": {
       "filters": {
         "virtualization-type": "hvm",
-        "name": "czbiohub-miniconda-*",
+        "name": "czbiohub-nanopore-*",
         "root-device-type": "ebs"
       },
       "owners": [423543210473],
@@ -25,7 +26,8 @@
   }],
   "provisioners": [{
     "type": "shell",
-    "script": "scripts/nanopore.sh",
+    "scripts": ["scripts/sleep_until_dpkg.sh",
+                "scripts/specops.sh"],
     "pause_before": "30s"
   }]
 }
