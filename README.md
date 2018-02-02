@@ -2,17 +2,19 @@
 
 Repository for Biohub packer images and a guide on how to use them.
 
-# Images for general use
+# Existing Images
 
-All AMIs are in the `us-west-2` (Oregon) region.
+All AMIs are in the `us-west-2` (Oregon) region. The AMI name consists of the stable name along with datestamp (YYYY-MM-DD).
 
-| Stable Name | AMI Name | Description |
-| ----------- | -------- | ----------- |
-| `czbiohub-ubuntu16` | `czbiohub-ubuntu16-*` | Ubuntu with updates, `make`, `g++`, and `awscli` |
-| `czbiohub-anaconda` | `czbiohub-anaconda-5.0.1-*` | Ubuntu16 + Anaconda3 5.0.1 | 
-| `czbiohub-bowtie2` | `czbiohub-bowtie2-*` | Anaconda3 + latest Bowtie2 |
-| `czbiohub-star-htseq` | `czbiohub-star-htseq-*` | Anaconda3 + latest STAR and HTSeq |
-
+| Stable Name | Description |
+| ----------- | ----------- |
+| `czbiohub-ubuntu16` | Ubuntu with updates, `make`, `g++`, and `awscli` |
+| `czbiohub-anaconda` | Ubuntu16 + Anaconda3 5.0.1 | 
+| `czbiohub-miniconda` | Ubuntu16 + Miniconda3 (Anaconda3 with fewer packages installed) |
+| `czbiohub-bowtie2` | Anaconda3 + latest Bowtie2 |
+| `czbiohub-star-htseq` | Anaconda3 + latest STAR and HTSeq |
+| `czbiohub-nanopore` | Miniconda3 + albacore and pomoxis |
+| `czbiohub-specops` | Miniconda3 + some sequencing, assembly, and nanopore tools |
 
 ## How to use the images
 
