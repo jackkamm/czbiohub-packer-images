@@ -1,8 +1,7 @@
 {
   "min_packer_version": "1.0.0",
   "variables": {
-    "aws_region": "us-west-2",
-    "user": "{{env `USER`}}"
+    "aws_region": "us-west-2"
   },
   "builders": [{
     "ami_name": "czbiohub-specops-{{isotime \"2006-01-02\" | clean_ami_name}}",
@@ -10,7 +9,7 @@
     "tags": {
       "Name": "czbiohub-specops"
     },
-    "instance_type": "m4.4xlarge",
+    "instance_type": "m4.xlarge",
     "region": "{{user `aws_region`}}",
     "type": "amazon-ebs",
     "source_ami_filter": {

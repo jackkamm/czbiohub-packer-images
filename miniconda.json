@@ -10,6 +10,18 @@
     "tags": {
       "Name": "czbiohub-miniconda"
     },
+    "ami_block_device_mappings": [{
+      "delete_on_termination": true,
+      "device_name": "/dev/sde",
+      "volume_size": 1000,
+      "volume_type": "standard"
+    }],
+    "launch_block_device_mappings": [{
+      "delete_on_termination": true,
+      "device_name": "/dev/sde",
+      "volume_size": 1000,
+      "volume_type": "standard"
+    }],
     "instance_type": "t2.micro",
     "region": "{{user `aws_region`}}",
     "type": "amazon-ebs",
@@ -26,7 +38,8 @@
   }],
   "provisioners": [{
     "type": "shell",
-    "script": "scripts/miniconda.sh",
+    "scripts": ["scripts/format_xvde.sh",
+                "scripts/miniconda.sh"],
     "pause_before": "30s"
   }]
 }
