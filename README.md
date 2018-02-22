@@ -9,12 +9,14 @@ All AMIs are in the `us-west-2` (Oregon) region. The AMI name consists of the st
 | Stable Name | Description |
 | ----------- | ----------- |
 | `czbiohub-ubuntu16` | Ubuntu with updates, `make`, `g++`, and `awscli` |
-| `czbiohub-anaconda` | Ubuntu16 + Anaconda3 5.0.1 | 
+| `czbiohub-anaconda` | Ubuntu16 + Anaconda3 5.0.1 |
 | `czbiohub-miniconda` | Ubuntu16 + Miniconda3 (Anaconda3 with fewer packages installed) |
-| `czbiohub-bowtie2` | Anaconda3 + latest Bowtie2 |
-| `czbiohub-star-htseq` | Anaconda3 + latest STAR and HTSeq |
+| `czbiohub-bowtie2` | Miniconda3 + latest Bowtie2 |
+| `czbiohub-star-htseq` | Miniconda3 + latest STAR and HTSeq |
 | `czbiohub-nanopore` | Miniconda3 + albacore and pomoxis |
 | `czbiohub-specops` | Miniconda3 + some sequencing, assembly, and nanopore tools |
+
+The Miniconda AMI and those based on it have 1TB of storage located at `/mnt/data`.
 
 ## How to use the images
 
