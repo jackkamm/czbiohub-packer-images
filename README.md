@@ -133,4 +133,4 @@ This happens because our date convention for the name is YYYY-MM-DD, and so AMIs
 
 ## Why this repo?
 
-If you put your templates in this repo, the data-science and/CZI eng teams can help to do things like make updates, enforce best practices, etc.
+If you put your templates in this repo, the data-science and CZI eng teams can help to do things like make updates, enforce best practices, etc.
