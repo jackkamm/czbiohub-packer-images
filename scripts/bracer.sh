@@ -1,8 +1,13 @@
-conda install --yes -c bioconda bowtie2 trinity igblast blast kallisto graphviz phylip trim-galore
-
 ## Keep running out of room when installing anaconda stuff
 mv ~/anaconda /mnt/data
 ln -s /mnt/data/anaconda ~/
+
+ # add to PATH
+export PATH=$HOME/anaconda/bin:$PATH
+
+
+# Prerequisites
+conda install --yes -c bioconda bowtie2 trinity igblast blast kallisto graphviz phylip trim-galore
 
 
 # Conda install requirements
@@ -16,6 +21,11 @@ pip install .
 
 cd /mnt/data
 aws s3 sync s3://olgabot-genomes genome
+
+cd /mnt/data/genome/hg38/gencode/v28/
+gunzip *.gz
+cd /mnt/data/genome/mm10/gencode/m17/
+gunzip *.gz
 
 cat "#Configuration file for BraCeR#
 
@@ -39,6 +49,7 @@ cat "#Configuration file for BraCeR#
 max_jellyfish_memory = 60G
 
 [kallisto_transcriptomes]
+# These are pure fasta files, not indexed kallisto files
 Hsap = /mnt/data/genome/hg38/gencode/v28/gencode.v28.transcripts.fa
 Mmus = /mnt/data/genome/mm10/gencode/m17/gencode.vM17.transcripts.fa
 
