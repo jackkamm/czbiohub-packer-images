@@ -15,7 +15,7 @@ conda install -c bioconda --yes python=3.6 biopython matplotlib networkx=1.11 cy
 
 # Install R and Immcantation through R
 conda install --yes r-ggplot2
-echo 'install.packages(c("alakazam", "Rscript", "shazam", "tigger"))' |  R --vanilla
+echo 'install.packages(c("alakazam", "Rscript", "shazam", "tigger", repos=c("https://ftp.osuosl.org/pub/cran/", "http://cran.us.r-project.org")))' |  R --vanilla
 
 cd /mnt/data
 git clone https://github.com/Teichlab/bracer

@@ -7,7 +7,7 @@
     "ami_name": "czbiohub-igrec-{{isotime \"2006-01-02\" | clean_ami_name}}",
     "ami_description": "An Ubuntu 16.04 AMI with Bracer for B cell transcriptome repertoires (https://github.com/Teichlab/bracer)",
     "tags": {"Name": "czbiohub-bracer"},
-    "instance_type": "m4.4xlarge",
+    "instance_type": "m4.xlarge",
     "region": "{{user `aws_region`}}",
     "type": "amazon-ebs",
     "source_ami_filter": {
