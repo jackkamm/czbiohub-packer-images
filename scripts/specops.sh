@@ -12,6 +12,7 @@ conda install --verbose clustalo
 conda install --verbose progressiveMauve
 conda install --verbose dbg2olc
 conda install --verbose spades
+conda install --verbose unicycler
 
 yes | conda clean --all
 
