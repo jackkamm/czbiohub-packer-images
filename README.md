@@ -27,7 +27,7 @@ You can run the image with `aegea launch`. Some useful options:
 * Use the option `--iam-role S3fromEC2` to give your instance the ability to download and upload from our S3 buckets
 * `--instance-type` or `-t` specifies the size (CPUs, memory, etc) of the instance. See http://www.ec2instances.info for a useful guide to what is available
 
-The last argument is the nam of the **instance**, which you will use to access it. In this example I launch an instance of our base Ubuntu16 image on a `t2.micro` machine with access to S3, and I call the instance `jwebber-test`.
+The last argument is the name of the **instance**, which you will use to access it. In this example I launch an instance of our base Ubuntu16 image on a `t2.micro` machine with access to S3, and I call the instance `jwebber-test`.
 
 ```shell
 ➜  aegea launch --iam-role S3fromEC2 --ami-tags Name=czbiohub-ubuntu16 -t t2.micro  jwebber-test
@@ -133,4 +133,4 @@ This happens because our date convention for the name is YYYY-MM-DD, and so AMIs
 
 ## Why this repo?
 
-If you put your templates in this repo, the data-science and/CZI eng teams can help to do things like make updates, enforce best practices, etc.
+If you put your templates in this repo, the data-science and CZI eng teams can help to do things like make updates, enforce best practices, etc.
