@@ -25,6 +25,5 @@
     "type": "shell",
     "script": "scripts/kmer.sh",
     "pause_before": "30s",
-    "expect_disconnect": true
   }]
 }

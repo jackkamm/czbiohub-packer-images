@@ -10,11 +10,14 @@ conda create --yes -n jellyfish-env jellyfish
 # Sourmash: http://sourmash.readthedocs.io/en/latest/
 conda create --yes -n sourmash-env python=3.6.4
 source activate sourmash-env
-# Install latest develompent version
+# Install latest development version
 pip install https://github.com/dib-lab/sourmash/archive/master.zip
 
 # Kraken: http://ccb.jhu.edu/software/kraken/
-conda create --yes -n kraken-env kraken
+# Bracken: https://github.com/jenniferlu717/Bracken
+conda create --yes -n kraken-env kraken bracken
+wget http://ccb.jhu.edu/software/kraken/dl/minikraken_20171019_8GB.tgz -O /mnt/data/minikraken.tgz
+tar xzvf /mnt/data/minikraken.tgz
 
 # MASH: http://mash.readthedocs.io/en/latest/
 conda create --yes -n mash-env mash
