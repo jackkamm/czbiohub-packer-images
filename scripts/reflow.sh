@@ -36,15 +36,17 @@ go get github.com/grailbio/reflow
 go install github.com/grailbio/reflow/cmd/reflow
 
 # test reflow command
-reflow
+reflow -help
 
 sudo cp /tmp/common-session /etc/pam.d/common-session
 sudo cp /tmp/common-session-noninteractive /etc/pam.d/common-session-noninteractive
 sudo cp /tmp/limits.conf /etc/security/limits.conf
 
 # Send reflow setup commands to bashrc so they get set up for every user's AWS credentials
-echo "reflow setup-ec2" >> ~/.bashrc
-echo "reflow setup-s3-repository czbiohub-reflow-quickstart-cache" >> ~/.bashrc
-echo "reflow setup-dynamodb-assoc czbiohub-reflow-quickstart" >> ~/.bashrc
+echo "AWS_SDK_LOAD_CONFIG=1 reflow setup-ec2" >> ~/.bashrc
+echo "AWS_SDK_LOAD_CONFIG=1 reflow setup-s3-repository czbiohub-reflow-quickstart-cache" >> ~/.bashrc
+echo "AWS_SDK_LOAD_CONFIG=1 reflow setup-dynamodb-assoc czbiohub-reflow-quickstart" >> ~/.bashrc
+
+source ~/.bashrc
 
 exit 0
