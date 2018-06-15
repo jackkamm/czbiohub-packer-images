@@ -23,9 +23,26 @@
     },
     "ssh_username": "ubuntu"
   }],
-  "provisioners": [{
-    "type": "shell",
-    "script": "scripts/reflow.sh",
-    "pause_before": "30s"
-  }]
+  "provisioners": [
+    {
+      "type": "file",
+      "source": "assets/reflow/etc/pam.d/common-session",
+      "destination": "/tmp/common-session"
+    },
+    {
+      "type": "file",
+      "source": "assets/reflow/etc/pam.d/common-session-noninteractive",
+      "destination": "/tmp/common-session-noninteractive"
+    },
+    {
+      "type": "file",
+      "source": "assets/reflow/etc/security/limits.conf",
+      "destination": "/tmp/limits.conf"
+    },
+    {
+      "type": "shell",
+      "script": "scripts/reflow.sh",
+      "pause_before": "30s"
+    }
+]
 }
