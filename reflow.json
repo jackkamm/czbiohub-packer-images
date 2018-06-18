@@ -45,6 +45,11 @@
       "destination": "/tmp/user.conf"
     },
     {
+      "type": "file",
+      "source": "assets/reflow/etc/systemd/system.conf",
+      "destination": "/tmp/system.conf"
+    },
+    {
       "type": "shell",
       "script": "scripts/reflow.sh",
       "pause_before": "60s"

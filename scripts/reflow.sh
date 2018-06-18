@@ -43,10 +43,13 @@ go install github.com/grailbio/reflow/cmd/reflow
 # test reflow command
 reflow -help
 
+# These files are necessary to increase the number of open file limits
+# so reflow can run on 1000s of files at once
 sudo cp /tmp/common-session /etc/pam.d/common-session
 sudo cp /tmp/common-session-noninteractive /etc/pam.d/common-session-noninteractive
 sudo cp /tmp/limits.conf /etc/security/limits.conf
 sudo cp /tmp/user.conf /etc/systemd/user.conf
+sudo cp /tmp/system.conf /etc/systemd/system.conf
 
 # Send reflow setup commands to bashrc so they get set up for every user's AWS credentials
 echo "AWS_SDK_LOAD_CONFIG=1 reflow setup-ec2" >> ~/.bashrc
