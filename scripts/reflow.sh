@@ -48,6 +48,11 @@ reflow -help
 sudo cp /tmp/common-session /etc/pam.d/common-session
 sudo cp /tmp/common-session-noninteractive /etc/pam.d/common-session-noninteractive
 sudo cp /tmp/limits.conf /etc/security/limits.conf
+
+# Normally the previous 3 lines would work but there's been a bug in Ubuntu
+# since 16.00: https://bugs.launchpad.net/ubuntu/+source/pam/+bug/65244
+# This stackoverflow answer has the correct information:
+# https://superuser.com/a/1200818/166053
 sudo cp /tmp/user.conf /etc/systemd/user.conf
 sudo cp /tmp/system.conf /etc/systemd/system.conf
 
