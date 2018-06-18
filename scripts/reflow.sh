@@ -1,7 +1,12 @@
 #!/bin/bash -x
 
-# Remove locks on installing packages
+# Remove locks on installing packages.
+# Ubuntu's unattended-upgrades is at fault here because it's constantly
+# monitoring for package upgrades
 sudo rm /var/lib/dpkg/lock
+sudo dpkg --configure -a
+# while sudo fuser /var/lib/dpkg/lock >/dev/null 2>&1; do sleep 1 done
+
 
 # Install latest version of go
 echo "Install latest version of go"
@@ -41,6 +46,7 @@ reflow -help
 sudo cp /tmp/common-session /etc/pam.d/common-session
 sudo cp /tmp/common-session-noninteractive /etc/pam.d/common-session-noninteractive
 sudo cp /tmp/limits.conf /etc/security/limits.conf
+sudo cp /tmp/user.conf /etc/systemd/user.conf
 
 # Send reflow setup commands to bashrc so they get set up for every user's AWS credentials
 echo "AWS_SDK_LOAD_CONFIG=1 reflow setup-ec2" >> ~/.bashrc

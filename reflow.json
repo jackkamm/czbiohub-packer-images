@@ -40,9 +40,14 @@
       "destination": "/tmp/limits.conf"
     },
     {
+      "type": "file",
+      "source": "assets/reflow/etc/systemd/user.conf",
+      "destination": "/tmp/user.conf"
+    },
+    {
       "type": "shell",
       "script": "scripts/reflow.sh",
-      "pause_before": "30s"
+      "pause_before": "60s"
     }
 ]
 }
