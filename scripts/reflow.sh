@@ -31,7 +31,7 @@ echo "export PATH=$PATH:$GOPATH/bin" >> ~/.bashrc
 
 # Tell Reflow to load AWS credentials the way Aegea stores them
 export AWS_SDK_LOAD_CONFIG=1
-echo "AWS_SDK_LOAD_CONFIG=1" >> ~/.bashrc
+echo "export AWS_SDK_LOAD_CONFIG=1" >> ~/.bashrc
 
 echo "Get and install reflow package"
 # Add reflow package
