@@ -33,12 +33,22 @@ echo "export PATH=$PATH:$GOPATH/bin" >> ~/.bashrc
 export AWS_SDK_LOAD_CONFIG=1
 echo "AWS_SDK_LOAD_CONFIG=1" >> ~/.bashrc
 
-echo "Get and install reflow package"
-# Add reflow package
-go get github.com/grailbio/reflow
+# Get release version of reflow
+wget https://github.com/grailbio/reflow/releases/download/reflow0.6.3/reflow0.6.3.linux.amd64
+sudo cp reflow0.6.3.linux.amd64 /usr/local/bin/reflow
+sudo chmod ugo+x /usr/local/bin/reflow
 
-# Install reflow binary
-go install github.com/grailbio/reflow/cmd/reflow
+# echo "Installing AWS dependencies"
+# go get github.com/aws/aws-sdk-go
+# go get github.com/cihub/seelog
+# go get github.com/pkg/errors
+#
+# echo "Get and install reflow package"
+# # Add reflow package
+# go get github.com/grailbio/reflow
+#
+# # Install reflow binary
+# go install github.com/grailbio/reflow/cmd/reflow
 
 # test reflow command
 reflow -help
