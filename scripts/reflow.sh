@@ -58,7 +58,7 @@ sudo cp /tmp/system.conf /etc/systemd/system.conf
 
 # Send reflow setup commands to bashrc so they get set up for every user's AWS credentials
 echo "AWS_SDK_LOAD_CONFIG=1 reflow setup-ec2" >> ~/.bashrc
-echo "AWS_SDK_LOAD_CONFIG=1 reflow setup-s3-repository czbiohub-reflow-quickstart-cache" >> ~/.bashrc
+echo 'repository: s3,czbiohub-reflow-quickstart-cache' >> ~/.reflow/config.yaml
 echo "AWS_SDK_LOAD_CONFIG=1 reflow setup-dynamodb-assoc czbiohub-reflow-quickstart" >> ~/.bashrc
 
 source ~/.bashrc
