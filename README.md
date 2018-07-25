@@ -20,7 +20,7 @@ The Miniconda AMI and those based on it have 1TB of storage located at `/mnt/dat
 
 ## How to use the images
 
-You can run the image with `aegea launch`. Some useful options:
+You can run the image with `aegea launch`. (Install [Aegea](https://github.com/kislyuk/aegea).) Some useful options:
 
 * `--ami-tags Name=[stable image name]` to get the latest version of one of the above images
 * Alternatively you can use `--ami [AMI ID]` to specify a particular Amazon machine image
