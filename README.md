@@ -1,6 +1,6 @@
 # packer-images
 
-Repository for Biohub packer images and a guide on how to use them.
+Repository for Biohub [packer images](https://www.packer.io/intro/getting-started/install.html) and a guide on how to use them.
 
 # Existing Images
 
