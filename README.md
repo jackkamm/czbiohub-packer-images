@@ -15,6 +15,7 @@ All AMIs are in the `us-west-2` (Oregon) region. The AMI name consists of the st
 | `czbiohub-star-htseq` | Miniconda3 + latest STAR and HTSeq |
 | `czbiohub-nanopore` | Miniconda3 + albacore and pomoxis |
 | `czbiohub-specops` | Miniconda3 + some sequencing, assembly, and nanopore tools |
+| `czbiohub-jupyter` | Miniconda3 with Jupyter installed, see below for instructions |
 
 The Miniconda AMI and those based on it have 1TB of storage located at `/mnt/data`.
 
@@ -75,6 +76,23 @@ If you're completely finished with an instance, use `aegea terminate`:
 
 Terminating an instance will get rid of any changes you made while you were using it, so make sure to upload your results to S3 or copy it to a local computer.
 
+## Using the Jupyter image
+
+You can launch a Jupyter notebook server on EC2 with our image and a few extra steps.
+
+```shell
+➜  aegea launch --ami-tags Name="czbiohub-jupyter" -t t2.micro jwebber-jupyter
+➜  aegea ssh ubuntu@jwebber-jupyter
+ubuntu@jwebber-jupyter:~$ jupyter notebook # might want to do this in a tmux session!
+```
+
+That command won't return as long as the server is running, so in a separate terminal:
+
+```shell
+➜  aegea ssh ubuntu@jwebber-jupyter -NL localhost:8899:localhost:8888
+```
+
+Again, this won't return as long as the connection is running. You will be able to access the server from a browser pointed at `localhost:8899`.
 
 # Workflow for making a new image
 
