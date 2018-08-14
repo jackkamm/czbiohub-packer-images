@@ -94,6 +94,7 @@ That command won't return as long as the server is running, so in a separate ter
 
 Again, this won't return as long as the connection is running. You will be able to access the server from a browser pointed at `localhost:8899`.
 
+The password for the notebook is the same as the InnerHub Wifi.
 
 ## How to look at which images you have running
 
