@@ -1,7 +1,8 @@
 #!/bin/bash -x
 
+sudo apt-get install stow htop
+
 git clone https://github.com/jackkamm/dotfiles $HOME/dotfiles
-sudo apt-get install stow
 stow -R -t ~ -d $HOME/dotfiles/stow common
 
 ln -s /mnt/data $HOME/data
