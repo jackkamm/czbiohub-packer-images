@@ -1,7 +1,7 @@
 export PATH=$HOME/anaconda/bin:$PATH # add to PATH
 echo 'export PATH=$HOME/anaconda/bin:$PATH'
 
-git clone https://github.com/czbiohub/cupcakes
+git clone https://github.com/czbiohub/cupcakes.git@olgabot/bioinformagician-part2-hotfix
 conda env update --name root --file cupcakes/2018/olgas_bioinformagician_tricks/environment.yml
 
 conda list
