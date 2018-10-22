@@ -1,11 +1,23 @@
 #!/bin/bash -x
 
-sudo apt-get install stow htop
+# download and install miniconda
+wget --quiet https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O /tmp/miniconda.sh
+bash /tmp/miniconda.sh -b
+
+echo 'export PATH=$HOME/miniconda3/bin:$PATH' >> ~/.bashrc
+
+# install latest R
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+sudo su -c  'echo "deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/" >> /etc/apt/sources.list'
+yes | sudo apt-get update
+yes | sudo apt-get install r-base r-base-dev
+
+# install dotfiles
+
+yes | sudo apt-get install stow htop
 
 git clone https://github.com/jackkamm/dotfiles $HOME/dotfiles
 stow -R -t ~ -d $HOME/dotfiles/stow common
 
+# symlink data folder
 ln -s /mnt/data $HOME/data
-
-export PATH=$HOME/anaconda/bin:$PATH # add to PATH
-conda config --set always_yes no --set changeps1 yes

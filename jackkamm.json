@@ -4,21 +4,35 @@
     "aws_region": "us-west-2"
   },
   "builders": [{
-    "ami_name": "jackkamm-ubuntu16_miniconda3-{{isotime \"2006-01-02\" | clean_ami_name}}",
-    "ami_description": "An Ubuntu 16.04 AMI with Miniconda3",
+    "ami_name": "jackkamm-ubuntu18-{{isotime \"2006-01-02\" | clean_ami_name}}",
+    "ami_description": "An Ubuntu 18.04 AMI with Jack's personal modifications",
     "tags": {
       "Name": "jackkamm"
     },
+    "ami_block_device_mappings": [{
+      "delete_on_termination": true,
+      "device_name": "/dev/sde",
+      "volume_size": 1000,
+      "volume_type": "standard"
+    }],
+    "launch_block_device_mappings": [{
+      "delete_on_termination": true,
+      "device_name": "/dev/sde",
+      "volume_size": 1000,
+      "volume_type": "standard"
+    }],
     "instance_type": "t2.micro",
     "region": "{{user `aws_region`}}",
     "type": "amazon-ebs",
     "source_ami_filter": {
       "filters": {
+        "name": "*ubuntu-bionic-18.04-amd64-server-*",
         "virtualization-type": "hvm",
-        "name": "czbiohub-miniconda-*",
+        "architecture": "x86_64",
+        "block-device-mapping.volume-type": "gp2",
         "root-device-type": "ebs"
       },
-      "owners": [423543210473],
+      "owners": ["099720109477"],
       "most_recent": true
     },
     "ssh_username": "ubuntu"
@@ -26,6 +40,7 @@
   "provisioners": [{
       "type": "shell",
       "scripts": ["scripts/sleep_until_dpkg.sh",
+		  "scripts/format_xvde.sh",
 		  "scripts/jackkamm.sh"],
       "pause_before": "30s",
       "inline_shebang": "/bin/bash -ex"
