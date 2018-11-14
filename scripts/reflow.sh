@@ -66,6 +66,25 @@ sudo cp /tmp/limits.conf /etc/security/limits.conf
 sudo cp /tmp/user.conf /etc/systemd/user.conf
 sudo cp /tmp/system.conf /etc/systemd/system.conf
 
+
+# Install docker - for local reflow runs
+sudo apt-get update
+sudo apt-get install --yes \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+# Ensure fingerprint is 9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88
+sudo apt-key fingerprint 0EBFCD88
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+sudo apt-get update
+sudo apt-get install --yes docker-ce
+sudo docker run hello-world
+
 # Send reflow setup commands to bashrc so they get set up for every user's AWS credentials
 echo "AWS_SDK_LOAD_CONFIG=1 reflow setup-ec2" >> ~/.bashrc
 echo "AWS_SDK_LOAD_CONFIG=1 reflow setup-dynamodb-assoc czbiohub-reflow-quickstart" >> ~/.bashrc
