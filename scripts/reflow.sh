@@ -34,7 +34,7 @@ export AWS_SDK_LOAD_CONFIG=1
 echo "AWS_SDK_LOAD_CONFIG=1" >> ~/.bashrc
 
 # Get release version of reflow
-wget https://github.com/grailbio/reflow/releases/download/reflow0.6.3/reflow0.6.3.linux.amd64
+wget https://github.com/grailbio/reflow/releases/download/reflow0.6.8/reflow0.6.8.linux.amd64
 sudo cp reflow0.6.3.linux.amd64 /usr/local/bin/reflow
 sudo chmod ugo+x /usr/local/bin/reflow
 
