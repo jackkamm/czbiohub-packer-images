@@ -18,6 +18,20 @@ conda config --add channels defaults
 conda config --add channels bioconda
 conda config --add channels conda-forge
 
+# install docker
+
+yes | sudo apt-get remove docker docker-engine docker.io
+yes | sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+yes | sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+yes | sudo apt-get update
+yes | sudo apt-get install docker-ce
+# TODO: yes | sudo apt-get upgrade? (weird shit happens with grub...)
+
+sudo groupadd docker
+sudo usermod -aG docker ubuntu
+sudo systemctl enable docker
+
 # install dotfiles
 
 yes | sudo apt-get install stow htop
