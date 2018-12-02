@@ -12,6 +12,12 @@ sudo su -c  'echo "deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran3
 yes | sudo apt-get update
 yes | sudo apt-get install r-base r-base-dev
 
+# install conda
+export PATH=$HOME/miniconda3/bin:$PATH
+conda config --add channels defaults
+conda config --add channels bioconda
+conda config --add channels conda-forge
+
 # install dotfiles
 
 yes | sudo apt-get install stow htop
