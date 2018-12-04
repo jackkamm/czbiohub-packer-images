@@ -12,26 +12,14 @@
       "ami_block_device_mappings": [
 	  {
               "device_name": "/dev/sda1",
-              "volume_size": 30,
+              "volume_size": 100,
               "delete_on_termination": true
-	  },
-	  {
-	      "delete_on_termination": true,
-	      "device_name": "/dev/sde",
-	      "volume_size": 1000,
-	      "volume_type": "standard"
 	  }],
       "launch_block_device_mappings": [
 	  {
               "device_name": "/dev/sda1",
-              "volume_size": 30,
+              "volume_size": 100,
               "delete_on_termination": true
-	  },
-	  {
-	      "delete_on_termination": true,
-	      "device_name": "/dev/sde",
-	      "volume_size": 1000,
-	      "volume_type": "standard"
 	  }],
     "instance_type": "t2.micro",
     "region": "{{user `aws_region`}}",
@@ -52,7 +40,6 @@
   "provisioners": [{
       "type": "shell",
       "scripts": ["scripts/sleep_until_dpkg.sh",
-		  "scripts/format_xvde.sh",
 		  "scripts/jackkamm.sh"],
       "pause_before": "30s",
       "inline_shebang": "/bin/bash -ex"
