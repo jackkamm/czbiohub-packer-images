@@ -38,6 +38,3 @@ yes | sudo apt-get install stow htop
 
 git clone https://github.com/jackkamm/dotfiles $HOME/dotfiles
 stow -R -t ~ -d $HOME/dotfiles/stow common
-
-# symlink data folder
-ln -s /mnt/data $HOME/data
