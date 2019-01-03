@@ -26,7 +26,7 @@
     "type": "amazon-ebs",
     "source_ami_filter": {
       "filters": {
-        "name": "*ubuntu-bionic-18.04-amd64-server-*",
+        "name": "ubuntu/images/*ubuntu-bionic-18.04-amd64-server-*",
         "virtualization-type": "hvm",
         "architecture": "x86_64",
         "block-device-mapping.volume-type": "gp2",
