@@ -11,20 +11,16 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD
 sudo su -c  'echo "deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/" >> /etc/apt/sources.list'
 yes | sudo apt-get update
 yes | sudo apt-get install r-base r-base-dev
-
-# install conda
-export PATH=$HOME/miniconda3/bin:$PATH
-conda config --add channels defaults
-conda config --add channels bioconda
-conda config --add channels conda-forge
+# needed by RCurl/bioconductor packages
+sudo apt-get install -y libcurl4-openssl-dev
 
 # install docker
+# TODO: follow recommended docker installation, instead of using ubuntu packages
+# (e.g., there is a bug with "docker push" when ubuntu docker-compose package is installed)
 sudo apt-get install -y docker.io docker-compose
 sudo usermod -aG docker ubuntu
 
 # install dotfiles
-
 yes | sudo apt-get install stow htop
-
 git clone https://github.com/jackkamm/dotfiles $HOME/dotfiles
 stow -R -t ~ -d $HOME/dotfiles/stow common
