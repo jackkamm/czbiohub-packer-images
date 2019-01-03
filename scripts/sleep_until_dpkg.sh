@@ -24,6 +24,6 @@ sudo UCF_FORCE_CONFFNEW=YES apt-get upgrade -yq
 yes | sudo apt-get install make
 yes | sudo apt-get install g++
 # this installs packages to system python3 but that's okay
-yes | sudo apt-get install awscli
+sudo DEBIAN_FRONTEND=noninteractive apt-get -y install awscli
 
 exit 0
