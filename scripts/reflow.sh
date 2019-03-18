@@ -34,8 +34,8 @@ export AWS_SDK_LOAD_CONFIG=1
 echo "AWS_SDK_LOAD_CONFIG=1" >> ~/.bashrc
 
 # Get release version of reflow
-wget https://github.com/grailbio/reflow/releases/download/reflow0.6.3/reflow0.6.3.linux.amd64
-sudo cp reflow0.6.3.linux.amd64 /usr/local/bin/reflow
+wget https://github.com/grailbio/reflow/releases/download/reflow0.6.8/reflow0.6.8.linux.amd64
+sudo cp reflow0.6.8.linux.amd64 /usr/local/bin/reflow
 sudo chmod ugo+x /usr/local/bin/reflow
 
 # echo "Installing AWS dependencies"
@@ -65,6 +65,25 @@ sudo cp /tmp/limits.conf /etc/security/limits.conf
 # https://superuser.com/a/1200818/166053
 sudo cp /tmp/user.conf /etc/systemd/user.conf
 sudo cp /tmp/system.conf /etc/systemd/system.conf
+
+
+# Install docker - for local reflow runs
+sudo apt-get update
+sudo apt-get install --yes \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+# Ensure fingerprint is 9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88
+sudo apt-key fingerprint 0EBFCD88
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+sudo apt-get update
+sudo apt-get install --yes docker-ce
+sudo docker run hello-world
 
 # Send reflow setup commands to bashrc so they get set up for every user's AWS credentials
 echo "AWS_SDK_LOAD_CONFIG=1 reflow setup-ec2" >> ~/.bashrc
